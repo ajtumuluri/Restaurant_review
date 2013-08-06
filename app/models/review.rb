@@ -5,8 +5,8 @@ class Review < ActiveRecord::Base
   belongs_to :item
 
   validates :user_id, :restaurant_id,  :contents, :presence => true
-  validate
-
+  validate :one_vote_per_user_per_food 
+  validates :contents, length: { maximum: 500}
 
 
 
